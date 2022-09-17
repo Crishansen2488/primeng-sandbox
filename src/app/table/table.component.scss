@@ -1,0 +1,26 @@
+:host ::ng-deep .pi-sort-alt{
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+
+:host ::ng-deep .pi-sort-amount-down{
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+
+:host ::ng-deep .pi-sort-amount-up-alt{
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+
+:host ::ng-deep .pi-sort-alt:before {
+  content: "\25B2 \A \25BC";
+}
+
+:host ::ng-deep .pi-sort-amount-down:before {
+      content: "\25BC";
+}
+
+:host ::ng-deep .pi-sort-amount-up-alt:before {
+      content: "\25B2";
+}

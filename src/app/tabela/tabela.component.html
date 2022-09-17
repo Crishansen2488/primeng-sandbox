@@ -1,0 +1,45 @@
+<div class="card">
+  <h5>Implicit Pagination</h5>
+  <p-table
+    [value]="customers"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    responsiveLayout="scroll"
+    [alwaysShowPaginator]="false"
+    [pageLinks]="3"
+    currentPageReportTemplate="Mostrando do {first}º ao {last}º registro de {totalRecords} registros"
+    [rowsPerPageOptions]="[5, 10, 20]"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+        <th pSortableColumn="country.name">Country <p-sortIcon field="country.name"></p-sortIcon></th>
+        <th pSortableColumn="company">Company <p-sortIcon field="company"></p-sortIcon></th>
+        <th pSortableColumn="representative.name">Representative <p-sortIcon field="representative.name"></p-sortIcon></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.country.name }}</td>
+        <td>{{ customer.company }}</td>
+        <td>{{ customer.representative.name }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button
+        type="button"
+        icon="pi pi-plus"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button
+        type="button"
+        icon="pi pi-cloud"
+        styleClass="p-button-text"
+      ></p-button>
+    </ng-template>
+  </p-table>
+</div>
