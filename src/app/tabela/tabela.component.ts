@@ -30,15 +30,23 @@ export class TabelaComponent implements OnInit {
         // this.customers = this.customers.sort((obj1, obj2) => {
         //    return obj1.name > obj2.name ? -1 : obj1.name < obj2.name ? 1 : 0;
         // });
+        // this.customers = this.customers.sort(this.onSortDescByName);
         //ordenação A - Z (nome)
         // this.customers = this.customers.sort((obj1, obj2) => {
         //   return obj1.name < obj2.name ? -1 : obj1.name > obj2.name ? 1 : 0;
         // });
-        //ordenação por país ASC
-        this.customers = this.customers.sort((obj1, obj2) => {
-          return obj1.country.name < obj2.country.name ? -1 : obj1.country.name > obj2.country.name ? 1 : 0;
-        });
+        this.customers = this.customers.sort(this.onSortAscByName);
+        //ordenação por país 
+        
         console.log(this.customers);
       });
+  }
+
+  onSortAscByName(obj1: any, obj2: any) {
+    return obj1.name < obj2.name ? -1 : obj1.name > obj2.name ? 1 : 0;
+  }
+
+  onSortDescByName(obj1: any, obj2: any) {
+    return obj1.name > obj2.name ? -1 : obj1.name < obj2.name ? 1 : 0;
   }
 }
