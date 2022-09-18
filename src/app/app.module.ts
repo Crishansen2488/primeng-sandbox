@@ -14,14 +14,10 @@ import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageService } from 'primeng/api';
 import { TabelaComponent } from './tabela/tabela.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [	
-    AppComponent,
-    TableComponent,
-    MenuComponent,
-      TabelaComponent
-   ],
+  declarations: [AppComponent, TableComponent, MenuComponent, TabelaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,12 +26,10 @@ import { TabelaComponent } from './tabela/tabela.component';
     HttpClientModule,
     PaginatorModule,
     MenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [
-    CustomerService,
-    MessageService
-  ],
-  bootstrap: [AppComponent]
+  providers: [CustomerService, MessageService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

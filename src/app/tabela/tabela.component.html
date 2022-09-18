@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
   <h5>Implicit Pagination</h5>
   <p-table
     [value]="customers"
@@ -40,6 +40,45 @@
         icon="pi pi-cloud"
         styleClass="p-button-text"
       ></p-button>
+    </ng-template>
+  </p-table>
+</div> -->
+
+<div class="card">
+  <h5>Implicit Pagination</h5>
+  <p-paginator #paginator
+    [pageLinkSize]="3"
+    [totalRecords]="totalRecords"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Mostrando do {first}º ao {last}º registro de {totalRecords} registros"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    (onPageChange)="setMyPagination($event)"
+  >
+  </p-paginator>
+  <p-table [value]="datasource" (onSort)="onSort($event)">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="name" (click)="resetPaginator()">
+          Name <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="country.name" (click)="resetPaginator()">
+          Country <p-sortIcon field="country.name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="company" (click)="resetPaginator()">
+          Company <p-sortIcon field="company"></p-sortIcon>
+        </th>
+        <th pSortableColumn="representative.name" (click)="resetPaginator()">
+          Representative <p-sortIcon field="representative.name"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.country.name }}</td>
+        <td>{{ customer.company }}</td>
+        <td>{{ customer.representative.name }}</td>
+      </tr>
     </ng-template>
   </p-table>
 </div>
