@@ -8,6 +8,8 @@
     responsiveLayout="scroll"
     [alwaysShowPaginator]="false"
     [pageLinks]="3"
+    (onSort)="sort()"
+    (onPage)="page()"
     currentPageReportTemplate="Mostrando do {first}º ao {last}º registro de {totalRecords} registros"
     [rowsPerPageOptions]="[5, 10, 20]"
   >
@@ -45,17 +47,27 @@
 </div> -->
 
 <div class="card">
-  <h5>Implicit Pagination</h5>
-  <p-paginator #paginator
-    [pageLinkSize]="3"
-    [totalRecords]="totalRecords"
-    [showCurrentPageReport]="true"
-    currentPageReportTemplate="Mostrando do {first}º ao {last}º registro de {totalRecords} registros"
-    [rowsPerPageOptions]="[5, 10, 20]"
-    (onPageChange)="setMyPagination($event)"
-  >
-  </p-paginator>
-  <p-table [value]="datasource" (onSort)="onSort($event)">
+  <h5>Paginação Customizada</h5>
+      <p-button style="float: left; padding-top: 0.6rem;"
+      pTooltip="Limpar ordenação"
+      type="button"
+      icon="pi pi-trash"
+      styleClass="p-button-text"
+      (onClick)="reset()"
+    ></p-button>
+      <p-paginator
+        #paginator
+        [pageLinkSize]="3"
+        [totalRecords]="totalRecords"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Mostrando do {first}º ao {last}º registro de {totalRecords} registros"
+        [rowsPerPageOptions]="[5, 10, 20]"
+        [rows]="rows"
+        (onPageChange)="setMyPagination($event)"
+      >
+      </p-paginator>
+
+  <p-table #table [value]="datasource" (onSort)="onSort($event)">
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="name" (click)="resetPaginator()">
