@@ -1,0 +1,12 @@
+.select-paginator {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #acacac;
+  border-radius: 4px;
+}
+
+:host ::ng-deep .p-paginator {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}

@@ -14,9 +14,10 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { TabelaComponent } from './tabela/tabela.component';
 import { PaginadorPersonalizadoComponent } from './paginador-personalizado/paginador-personalizado.component';
+import { PaginatorCustomComponent } from './paginator-custom/paginator-custom.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, TabelaComponent, PaginadorPersonalizadoComponent],
+  declarations: [AppComponent, MenuComponent, TabelaComponent, PaginadorPersonalizadoComponent, PaginatorCustomComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

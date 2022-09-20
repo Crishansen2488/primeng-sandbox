@@ -1,0 +1,25 @@
+<div class="col-12" style="display: flex;">
+  <p-paginator
+    #paginatorCustom
+    [rows]="paginator.size"
+    [first]="paginator.first"
+    [totalRecords]="paginator.totalElements"
+    (onPageChange)="changePaginator($event)"
+    [showFirstLastIcon]="false"
+  ></p-paginator>
+
+  <form [formGroup]="form" style="align-self:center">
+    <span>Exibir</span>
+    <span class="ml-1 mr-1">
+      <select formControlName="itensPerPage" class="select-paginator">
+        <option *ngFor="let item of listItensPorPage" value="{{ item }}">
+          {{ item }}
+        </option>
+      </select>
+    </span>
+    <span>
+      itens por página | {{ firstItem }} até {{ lastItem }} de
+      {{ totalElements }} itens</span
+    >
+  </form>
+</div>

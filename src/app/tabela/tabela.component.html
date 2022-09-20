@@ -48,16 +48,17 @@
 
 <div class="card">
   <h5>Paginação Customizada</h5>
-  <div style="float: left; padding-top: 0.6rem">
-    <p-button
-      pTooltip="Limpar ordenação"
-      type="button"
-      icon="pi pi-trash"
-      styleClass="p-button-text"
-      (onClick)="reset()"
-    ></p-button>
-  </div>
-  <!-- <p-paginator
+  <div [hidden]="totalRecords<=rows">
+    <div style="float: left; padding-top: 0.6rem">
+      <p-button
+        pTooltip="Limpar ordenação"
+        type="button"
+        icon="pi pi-trash"
+        styleClass="p-button-text"
+        (onClick)="reset()"
+      ></p-button>
+    </div>
+    <!-- <p-paginator
         #paginator
         [pageLinkSize]="3"
         [totalRecords]="totalRecords"
@@ -68,12 +69,17 @@
         (onPageChange)="setMyPagination($event)"
       >
       </p-paginator> -->
-  <app-paginador-personalizado
+    <!-- <app-paginador-personalizado
     #paginator
     [total]="totalRecords"
     [linhas]="rows"
     (change)="setMyPagination($event)"
-  ></app-paginador-personalizado>
+  ></app-paginador-personalizado> -->
+    <app-paginator-custom
+      #paginatorCustom
+      (change)="setMyPagination()"
+    ></app-paginator-custom>
+  </div>
   <p-table #table [value]="datasource" (onSort)="onSort($event)">
     <ng-template pTemplate="header">
       <tr>
