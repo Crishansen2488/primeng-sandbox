@@ -1,0 +1,10 @@
+<p-paginator
+  #paginator
+  (onPageChange)="changePaginator($event)"
+  [pageLinkSize]="3"
+  [totalRecords]="total"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Mostrando do {first}º ao {last}º registro de {totalRecords} registros"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  [rows]="linhas"
+></p-paginator>

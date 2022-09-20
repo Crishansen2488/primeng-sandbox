@@ -48,14 +48,16 @@
 
 <div class="card">
   <h5>Paginação Customizada</h5>
-      <p-button style="float: left; padding-top: 0.6rem;"
+  <div style="float: left; padding-top: 0.6rem">
+    <p-button
       pTooltip="Limpar ordenação"
       type="button"
       icon="pi pi-trash"
       styleClass="p-button-text"
       (onClick)="reset()"
     ></p-button>
-      <p-paginator
+  </div>
+  <!-- <p-paginator
         #paginator
         [pageLinkSize]="3"
         [totalRecords]="totalRecords"
@@ -65,21 +67,29 @@
         [rows]="rows"
         (onPageChange)="setMyPagination($event)"
       >
-      </p-paginator>
-
+      </p-paginator> -->
+  <app-paginador-personalizado
+    #paginator
+    [total]="totalRecords"
+    [linhas]="rows"
+    (change)="setMyPagination($event)"
+  ></app-paginador-personalizado>
   <p-table #table [value]="datasource" (onSort)="onSort($event)">
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="name" (click)="resetPaginator()">
+        <th pSortableColumn="name" (click)="setOrder('name')">
           Name <p-sortIcon field="name"></p-sortIcon>
         </th>
-        <th pSortableColumn="country.name" (click)="resetPaginator()">
+        <th pSortableColumn="country.name" (click)="setOrder('country.name')">
           Country <p-sortIcon field="country.name"></p-sortIcon>
         </th>
-        <th pSortableColumn="company" (click)="resetPaginator()">
+        <th pSortableColumn="company" (click)="setOrder('company')">
           Company <p-sortIcon field="company"></p-sortIcon>
         </th>
-        <th pSortableColumn="representative.name" (click)="resetPaginator()">
+        <th
+          pSortableColumn="representative.name"
+          (click)="setOrder('representative.name')"
+        >
           Representative <p-sortIcon field="representative.name"></p-sortIcon>
         </th>
       </tr>
